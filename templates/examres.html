@@ -1,0 +1,31 @@
+{% extends "teacherhome.html" %} 
+{% block content %}
+
+<style>
+    
+</style>
+<div class="container ">
+    <table class="table table-striped bg-white">
+        <tr>
+            <th>Question</th>
+            <th>Answer</th>
+            <th>Date</th>
+          
+        </tr>
+{% for qa in res %}
+        <tr>
+        <form method="post">
+            <td>{{qa['question']}}</td>
+            <td><input type ="text"  name="ans" class="form-control" value="{{qa['answer']}}"></td>
+            <td>{{qa['date']}}</td>
+           
+        </form>
+        </tr>
+
+{% endfor %}
+
+    </table>
+</div>
+
+{% endblock %}
+ 

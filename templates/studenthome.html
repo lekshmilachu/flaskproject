@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>studenthome</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <style>
+    .container{
+  height: 100vh;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+}
+nav {
+  position: relative;
+  display: flex;
+}
+nav a {
+  position: relative;
+  margin: 0 20px;
+  font-size: 2em;
+  color: #000;
+  text-decoration: none;
+}
+nav #marker {
+  position: absolute;
+  height: 4px;
+  left: 0;
+  width: 0;
+  background: #000;
+  bottom: -5px;
+  transition: 0.5s;
+  border-radius: 4px;
+}
+  </style>
+</head>
+<body>
+    {% block content %}
+  <div class="container">
+    <nav>
+       <div id="marker"></div>
+       <a href="#">Home</a>
+       <a href="#">Profile</a>
+       <a href="/student/examqn">exam</a>
+       <a href="#">result</a>
+       <a href="/logout">Logout</a>
+    </nav>
+    </div>
+    {% endblock %}
+    <script>
+
+      var marker = document.querySelector("#marker");
+      var item = document.querySelectorAll("nav a");
+      function indicator(e) {
+        marker.style.left = e.offsetLeft + "px";
+        marker.style.width = e.offsetWidth + "px";
+      }
+      item.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          indicator(e.target);
+        });
+      });
+    </script>
+</body>
+</html>

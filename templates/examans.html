@@ -1,0 +1,19 @@
+{% extends 'studenthome.html' %}
+{% block content %}
+
+
+<style>
+.container{
+    text-align: center;
+}
+
+</style>
+<form method="post">
+    <div class="container">
+      <label for="exampleInputEmail1" class="form-label" style="color: white;">Ask a question:</label><br>
+      <textarea name="question" id="" cols="50" rows="10"></textarea><br>
+
+    <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+</div>
+  </form>
+{% endblock %}
